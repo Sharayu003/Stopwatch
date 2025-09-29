@@ -19,6 +19,12 @@ body{
 #display{
     font-size: 4rem;
    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+#display span.ms{
+    font-size: 2em;
+    opacity: 0.8;
 }
 
 .buttons button{
