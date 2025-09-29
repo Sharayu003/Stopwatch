@@ -1,52 +1,84 @@
-body{
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #f2f2f2;
+    --button-bg: #ddd;
+    --button-text: #000;
+    --fastest-lap: #d4edda;
+    --slowest-lap: #f8d7da;
+}
+
+.dark-theme {
+    --bg-color: #111;
+    --text-color: #fff;
+    --card-bg: #222;
+    --button-bg: #444;
+    --button-text: #fff;
+    --fastest-lap: #155724;
+    --slowest-lap: #721c24;
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #111;
-    color: #fff;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Segoe UI', sans-serif;
+    transition: background 0.3s, color 0.3s;
 }
 
-.stopwatch-container{
+.stopwatch-container {
     text-align: center;
-    background: #222;
+    background: var(--card-bg);
     padding: 30px;
-    border-radius:12px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    transition: background 0.3s;
 }
 
-#display{
+#display {
     font-size: 4rem;
-   margin-bottom: 20px;
+    margin-bottom: 20px;
     letter-spacing: 2px;
 }
 
-#display span.ms{
+#display span.ms {
     font-size: 2em;
     opacity: 0.8;
 }
 
-.buttons button{
+.buttons button,
+.theme-btn {
     margin: 5px;
     padding: 10px 20px;
-    font-size:1.2 rem;
+    font-size: 1.2rem;
     border: none;
-    border-radius:5px;
+    border-radius: 5px;
     cursor: pointer;
-    background: #444;
-    color:#fff;
+    background: var(--button-bg);
+    color: var(--button-text);
     transition: 0.2s;
 }
 
-.buttons button:hover{
-    background: #666
+.buttons button:hover,
+.theme-btn:hover {
+    background: #666;
 }
 
-#laps{
-    margin-top:20px;
+#laps {
+    margin-top: 20px;
     list-style: none;
     padding: 0;
     max-height: 200px;
     overflow-y: auto;
+}
+
+#laps li.fastest {
+    background-color: var(--fastest-lap);
+}
+
+#laps li.slowest {
+    background-color: var(--slowest-lap);
 }

@@ -9,6 +9,7 @@
 <body>
     <div class="stopwatch-container">
         <h1 id="display">00:00:00:00</h1>
+
         <div class="buttons">
             <button onclick="start()">Start</button>
             <button onclick="stop()">Stop</button>
@@ -16,9 +17,22 @@
             <button onclick="lap()">Lap</button>
         </div>
 
+        <div class="sorting">
+            <label>Sort Laps:</label>
+            <!-- FIXED: Added id for JS -->
+            <select id="sortLaps">
+                <option value="none">None</option>
+                <option value="fastest">Fastest First</option>
+                <option value="slowest">Slowest First</option>
+            </select>
+        </div>
+
         <h2>Laps</h2>
         <ul id="laps"></ul>
+
+        <button id="themeToggle" class="theme-btn">🌙 Dark</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
