@@ -3,4 +3,4 @@
 
 ## Demo
 ![Project Demo](./demo.gif)
-<img width="800" alt="Project Demo" src="./demo.gif" />
+<img width="800" alt="Project Demo" src="sounds/demo.gif" />
