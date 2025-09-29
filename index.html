@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio id="clickSound" src="sounds/click.mp3"></audio>
+    <audio id="beepSound" src="sounds/beep.mp3"></audio>
+
     <div class="stopwatch-container">
-        <h1 id="display">00:00:00:00</h1>
+        <h1 id="display">
+            <span class="time-unit" id="hours">00</span>:
+            <span class="time-unit" id="minutes">00</span>:
+            <span class="time-unit" id="seconds">00</span>:
+            <span class="time-unit ms" id="milliseconds">00</span>
+        </h1>
 
         <div class="buttons">
             <button onclick="start()">Start</button>
             <button onclick="stop()">Stop</button>
             <button onclick="reset()">Reset</button>
             <button onclick="lap()">Lap</button>
+            <button id="downloadLaps">Download Laps</button>
+            <button id="copyLaps">Copy Laps</button>
         </div>
 
         <div class="sorting">
             <label>Sort Laps:</label>
-            <!-- FIXED: Added id for JS -->
             <select id="sortLaps">
                 <option value="none">None</option>
                 <option value="fastest">Fastest First</option>

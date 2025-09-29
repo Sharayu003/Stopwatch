@@ -1,11 +1,12 @@
+/* ==================== Root Colors ==================== */
 :root {
     --bg-color: #ffffff;
     --text-color: #000000;
     --card-bg: #f2f2f2;
     --button-bg: #ddd;
     --button-text: #000;
-    --fastest-lap: #d4edda;
-    --slowest-lap: #f8d7da;
+    --fastest-lap: #d4edda; /* light green */
+    --slowest-lap: #f8d7da; /* light red */
 }
 
 .dark-theme {
@@ -14,10 +15,11 @@
     --card-bg: #222;
     --button-bg: #444;
     --button-text: #fff;
-    --fastest-lap: #155724;
-    --slowest-lap: #721c24;
+    --fastest-lap: #28a745; /* green */
+    --slowest-lap: #dc3545; /* red */
 }
 
+/* ==================== Body ==================== */
 body {
     display: flex;
     justify-content: center;
@@ -27,8 +29,10 @@ body {
     color: var(--text-color);
     font-family: 'Segoe UI', sans-serif;
     transition: background 0.3s, color 0.3s;
+    margin: 0;
 }
 
+/* ==================== Stopwatch Container ==================== */
 .stopwatch-container {
     text-align: center;
     background: var(--card-bg);
@@ -36,49 +40,109 @@ body {
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
     transition: background 0.3s;
+    width: 350px;
+    max-width: 90%;
 }
 
+/* ==================== Display ==================== */
 #display {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 20px;
     letter-spacing: 2px;
+    font-weight: bold;
 }
 
 #display span.ms {
-    font-size: 2em;
+    font-size: 1.5rem;
     opacity: 0.8;
 }
 
+/* ==================== Flip Animation ==================== */
+.time-unit {
+    display: inline-block;
+    perspective: 100px; /* 3D effect */
+    font-weight: bold;
+}
+
+.time-unit.flip {
+    animation: flip 0.3s ease-in-out forwards;
+}
+
+@keyframes flip {
+    0% { transform: rotateX(0deg); }
+    50% { transform: rotateX(-90deg); }
+    100% { transform: rotateX(0deg); }
+}
+
+/* ==================== Buttons ==================== */
 .buttons button,
 .theme-btn {
     margin: 5px;
     padding: 10px 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
     background: var(--button-bg);
     color: var(--button-text);
-    transition: 0.2s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .buttons button:hover,
 .theme-btn:hover {
-    background: #666;
+    background: #888;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
 }
 
+.buttons button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* ==================== Sorting Dropdown ==================== */
+.sorting {
+    margin: 15px 0;
+}
+
+#sortLaps {
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+/* ==================== Laps ==================== */
 #laps {
     margin-top: 20px;
     list-style: none;
     padding: 0;
     max-height: 200px;
     overflow-y: auto;
+    text-align: left;
 }
 
+#laps li {
+    padding: 6px 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background: #e0e0e0;
+    transition: background 0.3s, transform 0.2s, opacity 0.3s;
+}
+
+.dark-theme #laps li {
+    background: #333;
+}
+
+/* Highlight fastest and slowest */
 #laps li.fastest {
     background-color: var(--fastest-lap);
+    font-weight: bold;
 }
 
 #laps li.slowest {
     background-color: var(--slowest-lap);
+    font-weight: bold;
 }
