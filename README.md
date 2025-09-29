@@ -1,5 +1,7 @@
 # Stopwatch
 # My Project
+## 🎥 Project Demo
+[Watch the Stopwatch Project Demo on YouTube]((https://www.youtube.com/watch?v=8XkblKIa_t4))
 
 ## Demo
 ![Project Demo](./demo.gif)
